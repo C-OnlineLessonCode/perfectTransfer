@@ -1,6 +1,3 @@
-// HelloWorld.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
 #include <type_traits>
 #include <typeinfo>
@@ -25,6 +22,14 @@ public:
         m_buf = new int[a.m_size];
         m_size = a.m_size;
         std::copy(a.m_buf, a.m_buf + a.m_size, m_buf);
+    }
+    
+    Vector& (Vector&& a) noexcept {
+        std::cout << "Vector& & a)" << std::endl;
+        m_size = a.m_size;
+        m_buf = a.m_buf;
+        a.m_buf = nullptr;
+       
     }
     Vector& operator=(const Vector& a) {
         std::cout << "Vector& operator=(const Vector& a)" << std::endl;
