@@ -61,4 +61,5 @@ private:
 int main() { 
     Vector a1(1);
     a1 = 20;
+    Vector a2(std::move(a1));
 }
