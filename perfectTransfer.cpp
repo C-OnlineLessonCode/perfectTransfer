@@ -34,6 +34,7 @@ public:
     Vector& operator=(const Vector& a) {
         std::cout << "Vector& operator=(const Vector& a)" << std::endl;
         delete[] m_buf;
+         m_buf = new int[a.m_size];
         m_size = a.m_size;
         std::copy(a.m_buf, a.m_buf + a.m_size, m_buf);
         return *this;
